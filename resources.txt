@@ -1,0 +1,17 @@
+Texto de ejemplo:
+https://www.lipsum.com/
+
+Colores:
+https://colors.artyclick.com/color-name-finder/
+
+Iconos:
+https://tablericons.com/
+
+Fuentes:
+https://fonts.google.com/
+
+Normalize CSS:
+https://necolas.github.io/normalize.css/
+
+CSS Box Model:
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/
