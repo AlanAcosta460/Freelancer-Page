@@ -154,8 +154,8 @@ h1, h2, h3 {
 
 /* Servicios */
 .servicios { /* Detener el scroll en la seccion de servicios */
-    scroll-snap-align: center;
-/* Centrar la sección  */    scroll-snap-stop: always;
+    scroll-snap-align: center; /* Centrar la sección  */
+    scroll-snap-stop: always;
 }
 .servicios {
     display: grid; /* Agregando las propiedades de CSS Grid */
@@ -197,8 +197,8 @@ h1, h2, h3 {
 
 /* Contacto */
 .formulario { /* Detener el scroll en la seccion de contacto */
-    scroll-snap-align: center;
-/* Centrar la sección  */    scroll-snap-stop: always;
+    scroll-snap-align: center; /* Centrar la sección  */
+    scroll-snap-stop: always;
 }
 .formulario {
     background-color: var(--gris); /* Color de Fondo */
