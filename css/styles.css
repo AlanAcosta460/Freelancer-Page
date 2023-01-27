@@ -1,16 +1,19 @@
 /* Propiedades Personalizadas */
 :root {
+    /* Paleta de Colores */
     --blanco: #FFFFFF;
     --oscuro: #212121;
     --primario: #FFC107;
     --secundario: #0097A7;
     --gris: #757575;
+    --cyan-claro: rgba(191, 247, 240, 0.6);
 }
 
 /* Globales */
 html {
     font-size: 62.5%; /* 1rem = 100px */
     box-sizing: border-box; /* Box Model */
+    scroll-snap-type: y mandatory; /* Controlar el scroll en el eje y */
 }
 *, *:before, *:after { /* Box Model */
     box-sizing: inherit; 
@@ -18,9 +21,12 @@ html {
 body {
     font-size: 16px; /* 1rem = 100px */
     font-family: 'PT Sans', sans-serif; /* Fuente */
+
+    /* Fondo Degradado */
+    background-image: linear-gradient(to top, var(--cyan-claro) 0%, var(--blanco) 100%); /* Fondo Degradado */
 }
-.contenedor { /* Barra que contiene la navegación principal */
-    max-width: 120rem; /* Tamaño maximo de la barra */
+.contenedor {
+    max-width: 120rem;
     margin: 0 auto; /* Acomodar Texto */
 }
 .boton {
@@ -35,11 +41,37 @@ body {
     border-radius: .5rem; /* Redondear bordes */
     width: 80%; /* Tamaño del boton */
     text-align: center; /* Alinear texto al centro */
+    border: none; /* Quitar borde */
 }
 @media (min-width: 480px) { /* Hacer el boton mas pequeño para pantallas de 480px en adelante */ 
     .boton {
         width: auto;
     }
+}
+.boton:hover {
+    background-color: var(--primario); /* Color de fondo */
+    color: var(--oscuro); /* Color de la fuente */
+    cursor:pointer; /* Muestra el icono de la mano cuando se pasa por encima del boton */
+}
+.sombra {
+    /* Sombreado */
+    -webkit-box-shadow: 0px 3px 20px 0px rgba(110,110,110,0.9);
+    -moz-box-shadow: 0px 3px 20px 0px rgba(110,110,110,0.9);
+    box-shadow: 0px 3px 20px 0px rgba(110,110,110,0.9);
+
+    background-color: var(--blanco); /* Color de Fondo */
+    padding: 2rem; 
+    border-radius: .5rem; /* Redondeo de esquinas */
+    
+    /* Separar el contenedor del borde de la pantalla */
+    margin-left: 1.5rem; 
+    margin-right: 1.5rem;
+}
+@media (min-width: 1180px) {
+   .sombra {
+        margin-left: auto;
+        margin-right: auto;
+   }
 }
 
 /* Tipografia */
@@ -62,11 +94,15 @@ h1, h2, h3 {
 }
 
 /* Navegación */
+.navegacion-principal { /* Detener el scroll en la navegacion principal */
+    scroll-snap-align: center; /* Centrar la sección  */
+    scroll-snap-stop: always;
+}
 .nav-fondo {
     background-color: var(--secundario); /* Color de fondo */
 }
 .navegacion-principal { /* Alineación de la barra de navegación principal */
-    display: flex; 
+    display: flex; /* Agregando las propiedades de Flex Box */
     flex-direction: column; /* Alinear los elementos uno debajo del otro */
 }
 @media (min-width: 768px) { /* Cambiar la distribución de las pestañas a fila en las pantallas de 768px en adelante */
@@ -94,8 +130,10 @@ h1, h2, h3 {
     background-image: url(../img/hero.jpg); /* Imagen de fondo */
     background-repeat: no-repeat; /* No repetir la imagen en pantallas grandes */
     background-size: cover; /* Ajustar la imagen al tamaño de la pantalla */
+    background-position-x: center; /* Posicionamiento de la imagen */
     height: 450px; /* Altura de la imagen */
     position: relative; /* Posicionar el contenido en la imagen */
+    margin-bottom: 2rem; /* Separar elementos */
 }
 .contenido-hero {
     position: absolute; /* Posicionar el contenido en la imagen */
@@ -105,7 +143,7 @@ h1, h2, h3 {
     height: 100%; /* Altura del contenido */
 
     /* Alineación Vertical */
-    display: flex; 
+    display: flex; /* Agregando las propiedades de Flex Box */
     flex-direction: column; /* Alinear los elementos uno debajo del otro */
     align-items: center; /* Alinear los elementos al centro */
     justify-content: center; /* Separar los elementos a partir del limite maximo en el contenedor */
@@ -114,3 +152,124 @@ h1, h2, h3 {
     color: var(--blanco); /* Color de la fuente */
 }
 
+/* Servicios */
+.servicios { /* Detener el scroll en la seccion de servicios */
+    scroll-snap-align: center;
+/* Centrar la sección  */    scroll-snap-stop: always;
+}
+.servicios {
+    display: grid; /* Agregando las propiedades de CSS Grid */
+    row-gap: 2rem; /* Separacion entre filas */
+}
+@media (min-width: 480px) { /* Para pantallas de mas de 480px */
+    .servicios {
+        grid-template-columns: repeat(2, 1fr); /* Dividiendo verticalmente en dos secciones */
+        column-gap: 4rem; /* Separacion entre columnas */
+    }
+}
+.servicio {
+    /* Posicionamiento del circulo */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /* Centrar circulo */
+}
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+.servicio .iconos {
+    /* Dimensiones */
+    height: 15rem;
+    width: 15rem;
+
+    background-color: var(--primario); /* Color del fondo */
+    border-radius: 50%; /* Un cuadrado con un border-radius: 50%; se convierte en un circulo */
+
+    /* Posicionamiento */
+    display: flex;
+    justify-content: space-evenly; /* Alinear horizontalmente */
+    align-items: center; /* Alinear verticalmente */
+}
+.servicio p {
+    line-height: 1.5; /* Interlineado */
+    text-align: justify;
+}
+
+/* Contacto */
+.formulario { /* Detener el scroll en la seccion de contacto */
+    scroll-snap-align: center;
+/* Centrar la sección  */    scroll-snap-stop: always;
+}
+.formulario {
+    background-color: var(--gris); /* Color de Fondo */
+    width: min(60rem, 100%); /* Utilizar el valor más pequeño */
+    margin: 0 auto; /* Centrar */
+    padding: 2rem;
+    border-radius: 1rem; /* Redondeado */
+}
+.formulario fieldset {
+    border: none; /* Quitando el borde por default */
+}
+.formulario legend {
+    text-align: center; /* Centrado */
+    font-size: 1.8rem; /* Tamaño de la fuente */
+    color: var(--primario); /* Color del texto */
+    text-transform: uppercase; /* Convertur a mayusculas */
+    font-weight: bold; /* Negritas */
+    margin-bottom: 2rem; /* Separacion de la parte de abajo */
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid; /* Desplegando CSS Grid */
+        grid-template-columns: repeat(2, 1fr); /* Creando dos columnas */
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem; /* Separando columnas */
+    }   
+
+    .campo:nth-child(3), .campo:nth-child(4) { /* Seleccionando al tercer elemento con la misma clase */
+        grid-column: 1 / 3;
+    }
+}
+.campo {
+    margin-bottom: 2rem; /* Separación entre cada campo */
+}
+.campo label {
+    color: var(--blanco); /* Color de la fuente */
+    font-weight: bold; /* Negritas */
+    margin-bottom: .5rem; 
+    display: block; /* Separacion del Input */
+}
+.campo textarea {
+    height: 20rem; /* Altura del area de texto */
+}
+.imput-text {
+    width: 100%; /* Espacio que ocupa */
+    border: none; /* Quitar borde */
+    padding: 1.25rem;
+    border-radius: .5rem; /* Redondeado */
+}
+.enviar {
+    /* Posicionamiento en la derecha */
+    display: flex; 
+    justify-content: flex-end;
+    margin-top: 3rem;
+}
+.enviar .boton {
+    width: 100%; /* El boton ocupa todo el espacio disponible en pantallas de menos de 768px */
+}
+@media (min-width: 768px) {
+    .enviar .boton {
+        width: auto; /* El boton solo coupa el tamaño adecuado */
+    }
+}
+
+/* Footer */
+footer {
+    /* Margen */
+    margin-top: 5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    text-align: center; /* Centrado */
+}

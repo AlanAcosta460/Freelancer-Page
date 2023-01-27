@@ -15,3 +15,9 @@ https://necolas.github.io/normalize.css/
 
 CSS Box Model:
 https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+
+Degradado:
+https://www.cssmatic.com/
+
+Soporte: 
+https://caniuse.com/
